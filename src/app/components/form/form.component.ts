@@ -59,17 +59,15 @@ export class FormComponent implements OnInit {
   }
 
   cancel() {
-    this.cardTitle = 'Registar taco'
     this.getTacos();
     this.reset();
-    alert('cancel');
-
   }
 
   reset() {
     this.taco.id = null;
     this.taco.nombre = '';
     this.taco.precio = null;
+    this.cardTitle = 'Registrar taco';
     this.getTacos();
   }
 
