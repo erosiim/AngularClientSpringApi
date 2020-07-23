@@ -1,0 +1,19 @@
+mat-card,app-tacos-view{
+    margin: auto;
+    width: 90%;
+    display: block;
+}
+
+mat-form-field, input{
+    width: 100%;
+}
+
+mat-card{
+    background-color: rgb(23, 68, 112)
+}
+mat-label{
+    color: whitesmoke;
+}
+p{
+    font-size: 1.1rem;
+}

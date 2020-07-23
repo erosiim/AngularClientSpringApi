@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <br>
+            <mat-card>
+                <mat-card-title>{{cardTitle}}</mat-card-title>
+                <form class="" #tacoForm="ngForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field>
+                        <mat-label>Id</mat-label>
+                        <input matInput placeholder="Id del taco" type="number" name="id" #id="ngModel"
+                            [(ngModel)]="taco.id" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Nombre del taco" value="" name="nombre" #nombre="ngModel"
+                            [(ngModel)]="taco.nombre" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Precio</mat-label>
+                        <input matInput placeholder="Precio" type="number" name="precio" #precio="ngModel"
+                            [(ngModel)]="taco.precio" required>
+                    </mat-form-field>
+                    <div class="d-flex justify-content-between">
+                        <button type="button" (click)="reset()" class="btn btn-success"
+                            style="color: rgb(255, 255, 255);">Limpiar</button>
+                        <button type="button" (click)="cancel()" class="btn btn-warning"
+                            style="color: rgb(255, 255, 255);">Cancelar</button>
+                    </div>
+
+                </form>
+            </mat-card>
+            <br>
+            <mat-card>
+                <mat-card-title>Previsualización</mat-card-title>
+                <mat-card-content>
+                    <p>Id: {{taco.id}}</p>
+                    <p>Nombre: {{taco.nombre}}</p>
+                    <p>Precio: $ {{taco.precio}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button type="submit" (click)="onSubmit()" class="btn btn-info" style="width: 100%;"
+                        [disabled]="tacoForm.invalid">Confirmar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-9 col-md-9">
+            <h1 style="text-align: center;">Lista de tacos</h1>
+            <div class="table-responsive-md">
+                <table class="table table-dark table-striped" style="background-color: rgb(23, 68, 112)">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th style="text-align: center;">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let mytaco of tacos">
+                        <tr>
+                            <td>{{mytaco.id}}</td>
+                            <td>{{mytaco.nombre}}</td>
+                            <td>{{mytaco.precio}}</td>
+                            <th scope="row" style="justify-content: space-around; display: flex;">
+                                <button (click)="deleteTaco(mytaco.id)" class="btn btn-danger">Eliminar <i
+                                        class="fa fa-trash"></i></button>
+                                <button (click)="editRow(mytaco)" class="btn btn-warning">Editar <i
+                                        class="fa fa-edit"></i>
+                                </button>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Magic here, show id in reactive mode
+        {{taco.id}}
+        <br>
+        {{taco.nombre}}
+        <br>
+        {{taco.precio}}-->
+    </div>
+</div>

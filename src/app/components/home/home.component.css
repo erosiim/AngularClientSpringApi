@@ -1,0 +1,13 @@
+main{
+    width: 100%;
+}
+mat-card{
+    width: 35%;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center;
+}
+p{
+    font-size: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
